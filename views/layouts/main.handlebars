@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="glass-nav">
+        <div class="nav-left">
+          <span class="logo">ONE</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/list">List</a></li>
+          <li><a href="/aboutus">About</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div class="nav-right">
+          {{! login }}
+          {{#if session.isLoggedIn}}
+            <span>Hej, {{session.username}}!</span>
+            {{! admin management}}
+            {{#if (eq session.role "admin")}}
+              <a href="/admin" class="nav-btn">Admin</a>
+            {{/if}}
+            <a href="/update" class="nav-btn">Update Email</a>
+            <a href="/logout" class="nav-btn">Log out</a>
+
+            {{!unlogin }}
+          {{else}}
+            <a href="/login" class="nav-btn">Log in</a>
+            <a href="/register" class="nav-btn">Register</a>
+          {{/if}}
+        </div>
+
+      </nav>
+    </header>
+
+    <main>
+      {{{body}}}
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p class="blog-tagline">Where words find their rhythm, and ideas take
+          flight.</p>
+        <p class="copyright">&copy; David Zhang - 2025</p>
+      </div>
+    </footer>
+  </body>
+</html>

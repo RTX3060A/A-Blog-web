@@ -1,0 +1,13 @@
+<h1>Edit User: {{user.username}}</h1>
+<form method="POST" action="/admin/edit-user/{{user.id}}">
+  <label>Username:</label><br>
+  <input name="username" value="{{user.username}}" required><br>
+  <label>Email:</label><br>
+  <input name="email" value="{{user.email}}" required><br>
+  <label>Role:</label><br>
+  <select name="role">
+    <option value="user" {{#if (eq user.role "user")}}selected{{/if}}>User</option>
+    <option value="admin" {{#if (eq user.role "admin")}}selected{{/if}}>Admin</option>
+  </select><br><br>
+  <button type="submit">Save Changes</button>
+</form>

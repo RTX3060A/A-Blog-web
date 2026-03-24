@@ -1,0 +1,19 @@
+<section class="update-section">
+  <h1>Update Your Email</h1>
+  <form action="/update" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Your username" required />
+
+    <label for="email">New Email:</label>
+    <input type="email" name="email" placeholder="New email address" required />
+
+    <button type="submit">Update Email</button>
+  </form>
+
+  {{#if message}}
+    <p class="success">{{message}}</p>
+  {{/if}}
+  {{#if error}}
+    <p class="error">{{error}}</p>
+  {{/if}}
+</section>

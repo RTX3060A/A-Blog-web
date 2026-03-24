@@ -1,0 +1,32 @@
+<section class="home-section">
+  <h1 class="page-title">Welcome to ONE Blog</h1>
+  <p class="intro-text">
+    "Meeting in words is like bumping into a perfect rain on the street—not too
+    early, not too late, just enough to soak all pretense."
+  </p>
+
+  <h2>Latest Posts</h2>
+
+  <div class="post-grid">
+    {{#each posts}}
+      <article class="post-card">
+        {{#if image}}
+          <img src="/img/{{image}}" alt="{{title}}" width="400" />
+        {{/if}}
+        <div class="post-content">
+          <h3><a href="/post/{{id}}">{{title}}</a></h3>
+          <p class="meta">By {{author}} · {{category}} · {{created_at}}</p>
+          <p>{{truncate content 150}}</p>
+          <a href="/post/{{id}}" class="read-more">Read more →</a>
+        </div>
+      </article>
+    {{/each}}
+  </div>
+
+  <div class="photography-feature">
+    <h2>Annual Best Photography Works</h2>
+    <div class="photo-container">
+      <img src="/img/post10.jpg" alt="Annual best photography collection" />
+    </div>
+  </div>
+</section>

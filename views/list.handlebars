@@ -1,0 +1,27 @@
+<section class="list-section">
+  <h1>{{title}}</h1>
+
+  <div class="posts">
+    {{#each posts}}
+      <article class="post">
+        <h2><a href="/post/{{id}}">{{title}}</a></h2>
+        <p><em>By {{author}} in {{category}} — {{created_at}}</em></p>
+        {{#if image}}
+          <img src="/img/{{image}}" alt="{{title}}" width="200" />
+        {{/if}}
+      </article>
+    {{/each}}
+  </div>
+
+  <div class="pagination">
+    {{#if (gt currentPage 1)}}
+      <a href="/list?page={{decrement currentPage}}">← Prev</a>
+    {{/if}}
+
+    <span>Page {{currentPage}} of {{totalPages}}</span>
+
+    {{#if (lt currentPage totalPages)}}
+      <a href="/list?page={{increment currentPage}}">Next →</a>
+    {{/if}}
+  </div>
+</section>

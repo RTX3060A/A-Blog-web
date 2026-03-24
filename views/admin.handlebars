@@ -1,0 +1,38 @@
+<section class="admin-section">
+  <h1>Welcome, Admin {{username}} </h1>
+  <p>Manage your users here.</p>
+
+  <div class="user-table-container">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+          <tr>
+            <td>{{id}}</td>
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+            <td>{{role}}</td>
+            <td>
+              <a href="/admin/edit-user/{{id}}" class="btn-edit">Edit</a>
+              <a
+                href="/admin/delete-user/{{id}}"
+                class="btn-delete"
+                onclick="return confirm('Are you sure?')"
+              >Delete</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <a href="/admin/add-user" class="btn-add">➕ Add New User</a>
+</section>

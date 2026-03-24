@@ -1,0 +1,81 @@
+<article class="post-detail" style="max-width: 600px;">
+  <h1>{{post.title}}</h1>
+  <p>By {{post.author}} in {{post.category}} — {{post.created_at}}</p>
+
+  {{#if post.image}}
+    <img src="/img/{{post.image}}" alt="{{post.title}}" width="300" />
+  {{/if}}
+
+  <p style="margin-top: 20px;">{{post.content}}</p>
+
+  <a href="/list">← Back to list</a>
+</article>
+
+<section class="comments-section" style="max-width: 600px; margin-top: 40px;">
+  <h2>Comments</h2>
+
+  <div class="comments-list" style="margin-bottom: 30px;">
+    {{#each comments}}
+      <div
+        class="comment-item"
+        style="padding: 15px; border-bottom: 1px solid #eee;"
+      >
+        <div class="comment-meta" style="font-weight: bold; color: #333;">
+          {{commenter}}
+
+          <span style="color: #666; font-weight: normal; margin-left: 10px;">
+            {{created_at}}
+
+          </span>
+        </div>
+        <div class="comment-content" style="margin-top: 5px;">
+          {{content}}
+        </div>
+      </div>
+    {{else}}
+
+      <p style="color: #666;">No comments yet. Be the first to comment!</p>
+    {{/each}}
+  </div>
+
+  <!-- submit -->
+  <div class="comment-form">
+    <h3>Leave a Comment</h3>
+    <form
+      action="/post/{{post.id}}/comment"
+      method="POST"
+      style="display: flex; flex-direction: column; gap: 15px;"
+    >
+      <div>
+        <label for="commenter" style="display: block; margin-bottom: 5px;">Your
+          Name:</label>
+        <input
+          type="text"
+          id="commenter"
+          name="commenter"
+          required
+          style="width: 100%; padding: 8px; box-sizing: border-box;"
+          placeholder="Enter your name"
+        />
+      </div>
+      <div>
+        <label for="content" style="display: block; margin-bottom: 5px;">Your
+          Comment:</label>
+        <textarea
+          id="content"
+          name="content"
+          required
+          rows="4"
+          style="width: 100%; padding: 8px; box-sizing: border-box;"
+          placeholder="Write your comment here..."
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;"
+      >
+        Submit Comment
+      </button>
+    </form>
+  </div>
+</section>

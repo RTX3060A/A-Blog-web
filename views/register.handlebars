@@ -1,0 +1,31 @@
+<div class="register-section">
+  <h1>Register</h1>
+
+  {{#if error}}
+    <p class="error">{{error}}</p>
+  {{/if}}
+  {{#if message}}
+    <p class="message">{{message}}</p>
+  {{/if}}
+
+  <form action="/register" method="POST" class="register-form">
+    <div class="form-group">
+      <label>Username:</label>
+      <input type="text" name="username" required />
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label>Password:</label>
+      <input type="password" name="password" required />
+    </div>
+    <button type="submit">Register</button>
+  </form>
+
+  <p class="login-link">
+    Already have an account?
+    <a href="/login">Log in</a>
+  </p>
+</div>
