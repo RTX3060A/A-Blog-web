@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-jl",
+  "version": "1.0.0",
+  "description": "This is my project for Web Dev is Fun.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "js"
+  ],
+  "author": "JL",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "connect-sqlite3": "^0.9.16",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "express-session": "^1.18.2",
+    "handlebar": "^1.0.0",
+    "sqlite3": "^5.1.7"
+  }
+}

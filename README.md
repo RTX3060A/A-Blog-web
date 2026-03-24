@@ -1,2 +1,1 @@
-# A-Blog-web
-A mini blog website
+A small project
